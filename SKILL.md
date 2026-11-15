@@ -1,7 +1,7 @@
 ---
 name: povray
 description: "Write, fix, and render POV-Ray scenes (syntax 2.2-3.8)."
-version: 1.0.0
+version: 1.0.1
 author: ChrisL2000, Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
@@ -78,7 +78,7 @@ light_source { <5, 10, -5> color rgb <1, 1, 1> }
 
 background { color rgb 0.8 }
 
-plane { y * 0.0
+plane { y, 0
   texture { pigment { color rgb <0.2, 0.5, 0.2> } finish { specular 0.5 } }
 }
 
@@ -100,6 +100,15 @@ sphere { <0, 1, 0>, 1
 - Quality: `+Q0..10` (AA + refinement), preview: `+P`; no file output: `+NF`
 - Full option list: `references/ref-render-options.md` (3.7) /
   `references/3.8/3.8-options.md` (3.8)
+
+## Refreshing the corpus (only if re-pulling sources)
+
+- Official 3.x docs + distribution scenes: POV-Ray/povray GitHub repo, pinned per release
+  tag (3.7.1, 3.8.0); 2.2 POVDOC from the classic 2.2 archive. Clone the tag, convert HTML
+  to clean text, dedupe changed files across version trees.
+- Wiki: live wiki.povray.org blocks plain curl (Cloudflare on the MediaWiki api.php) and
+  the old povray.org/wikis/ path is dead (404). Re-pull via Wayback CDX `id_` raw
+  snapshots, the way `references/faq.md` and `references/keyword-index.md` were.
 
 ## Pitfalls
 
